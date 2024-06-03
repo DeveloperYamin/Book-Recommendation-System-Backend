@@ -33,7 +33,7 @@ const verifyCallback =
         new ApiError(httpStatus.UNAUTHORIZED, "Please authenticate")
       );
     }
-    req.user = { id: user._id, email: user.email };
+    req.user = user;
     resolve();
   };
 

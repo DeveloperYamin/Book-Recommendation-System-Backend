@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@types/express-serve-static-core':
+    specifier: ^4.19.3
+    version: 4.19.3
   '@types/passport':
     specifier: ^1.0.16
     version: 1.0.16
