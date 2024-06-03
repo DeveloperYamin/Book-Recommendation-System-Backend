@@ -1,3 +1,6 @@
+/* This code snippet is setting up a Node.js server using Express framework with MongoDB database
+connection using Mongoose. Here is a breakdown of what each part of the code is doing: */
+
 import mongoose from 'mongoose';
 import app from './app';
 import config from './utils/config';

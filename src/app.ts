@@ -1,3 +1,6 @@
+/* This code snippet is setting up a basic Express server in TypeScript. Here's a breakdown of what
+each part of the code is doing: */
+
 import express, { Express } from "express";
 import helmet from "helmet";
 import ExpressMongoSanitize from "express-mongo-sanitize";
