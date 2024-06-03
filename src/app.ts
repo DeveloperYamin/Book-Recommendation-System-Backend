@@ -13,6 +13,7 @@ import morgan from "./utils/morgan";
 import config from "./utils/config";
 import passport from "passport";
 import cookieParser from "cookie-parser";
+import routes from './routes/v1';
 
 const app: Express = express();
 
@@ -53,6 +54,9 @@ app.use(passport.initialize());
 if (config.env === "production") {
   app.use("/v1/auth", authLimiter);
 }
+
+// v1 api routes
+app.use('/v1', routes);
 
 // send back a 404 error for any unknown api request
 app.use((_req, _res, next) => {
