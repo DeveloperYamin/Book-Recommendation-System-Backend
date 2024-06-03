@@ -16,7 +16,7 @@ export const getBooks = catchAsync(async (req: Request, res: Response) => {
 
   const url = new URL("https://www.googleapis.com/books/v1/volumes");
 
-  if (Object.keys(filter).length) {
+  if (Object.keys(filter).length && req.url === "/") {
     url.searchParams.set("q", filter.search_query);
     url.searchParams.set("key", config.booksApiKey);
     const { data } = await axios.get(url.toString());
@@ -61,7 +61,7 @@ export const getBookRecommendations = catchAsync(
         url.searchParams.set("orderBy", "relevance");
         url.searchParams.set("maxResults", "5");
         url.searchParams.set("key", config.booksApiKey);
-        const { data } = await axios.get<BookResponse>(url.toString());
+        const { data } = await axios.get(url.toString());
         if (data && data.items) {
           recommendations.push(...data.items);
         }

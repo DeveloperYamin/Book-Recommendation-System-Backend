@@ -8,6 +8,7 @@ import authMiddleware from "../../middlewares/auth.middleware";
 const router: Router = express.Router();
 
 router.route("/").get(authMiddleware(), bookController.getBooks);
+router.route("/randoms").get(bookController.getBooks);
 router.route("/recommendations").get(authMiddleware(), bookController.getBookRecommendations);
 
 export default router;
