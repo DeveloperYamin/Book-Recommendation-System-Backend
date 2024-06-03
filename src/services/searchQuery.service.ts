@@ -35,7 +35,6 @@ export const saveSearchQuery = async (
   return searchQuery;
 };
 
-
 /**
  * get a search query
  * @param {mongoose.Types.ObjectId} userId
@@ -45,4 +44,16 @@ export const getSearchHistory = async (
   userId: mongoose.Types.ObjectId
 ): Promise<ISearchQueryDoc[]> => {
   return await SearchQuery.find({ userId }).sort({ createdAt: -1 }).exec();
+};
+
+/**
+ * get a search query
+ * @param {mongoose.Types.ObjectId} userId
+ * @returns {Promise<string[]>}
+ */
+export const getPreferredGenres = async (userId: mongoose.Types.ObjectId): Promise<string[]> => {
+  const genres = await SearchQuery.distinct("genres", {
+    userId,
+  });
+  return genres.flat(); // Flatten the array of arrays
 };
