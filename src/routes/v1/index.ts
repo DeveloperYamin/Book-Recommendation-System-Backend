@@ -4,6 +4,7 @@ breakdown of what it does: */
 import express, { Router } from 'express';
 import authRoute from './auth.route';
 import userRoute from './user.route';
+import bookRoute from './book.route';
 
 const router = express.Router();
 
@@ -20,6 +21,10 @@ const defaultIRoute: IRoute[] = [
   {
     path: '/users',
     route: userRoute,
+  },
+  {
+    path: '/books',
+    route: bookRoute,
   }
 ];
 
