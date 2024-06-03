@@ -14,6 +14,7 @@ import config from "./utils/config";
 import passport from "passport";
 import cookieParser from "cookie-parser";
 import routes from './routes/v1';
+import jwtStrategy from "./middlewares/passport";
 
 const app: Express = express();
 
@@ -49,6 +50,7 @@ app.use(compression());
 
 // jwt authentication
 app.use(passport.initialize());
+passport.use("jwt", jwtStrategy);
 
 // limit repeated failed requests to auth endpoints
 if (config.env === "production") {
